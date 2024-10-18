@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: true
+  ignore_errors: yes
+  gather_facts: yes
+  vars_files:
+      - vars.yaml
+
+  tasks: 
+      - name: Download from URL
+        ansible.builtin.get_url:
+          url: "{{ LINK_URL }}"
+          dest: "{{ DESTINATION }}"
+      
+      - name: Remove URl file
+        file: 
+           path: "{{ DESTINATION }}}"
+           mode: '0755'
+           state: absent
