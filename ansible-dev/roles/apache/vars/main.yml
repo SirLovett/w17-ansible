@@ -1,0 +1,8 @@
+---
+apache_pkg: httpd
+pkg_state: present
+service_name: httpd
+serivce_state: started
+file_path: /var/www/html.index
+file_state: touch
+content: <h1> This is build as a role </h1>
